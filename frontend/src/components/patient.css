@@ -1,0 +1,126 @@
+._03-all-records-page {
+    background: #15a196;
+    height: 1024px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .rectangle-9,
+  .rectangle-14,
+  .rectangle-15,
+  .rectangle-16,
+  .rectangle-17,
+  .rectangle-18,
+  .rectangle-19,
+  .rectangle-13 {
+    background: #ffffff;
+    border-radius: 10px;
+    width: 737px;
+    height: 83px;
+    position: absolute;
+    left: 283px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .rectangle-9 {
+    top: 455px;
+  }
+  
+  .rectangle-14 {
+    top: 326px;
+  }
+  
+  .rectangle-15 {
+    top: 197px;
+  }
+  
+  .rectangle-16 {
+    top: 68px;
+  }
+  
+  .rectangle-17 {
+    top: 704px;
+  }
+  
+  .rectangle-18 {
+    top: 913px;
+  }
+  
+  .rectangle-19 {
+    top: 800px;
+  }
+  
+  .rectangle-13 {
+    top: 584px;
+  }
+  
+  .input-box {
+    width: 90%;
+    height: 60%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .input-box::placeholder {
+    color: #aaa;
+  }
+  
+  .submit,
+  .back {
+    text-align: center;
+    padding: 10px 20px;
+    margin: 10px auto;
+    width: 150px;
+    background-color: #ffffff;
+    color: #15a196;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  .submit {
+    top: 961px;
+    left: 1207px;
+  }
+  
+  .back {
+    top: 898px;
+    left: 1207px;
+  }
+  
+  .submit:hover,
+  .back:hover {
+    background-color: #13a08a;
+    color: white;
+  }
+  
+  .patient-inputs {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Poppins-Regular", sans-serif;
+    font-size: 24px;
+    line-height: 22px;
+    font-weight: 600;
+    position: absolute;
+    left: 549px;
+    top: 28px;
+    width: 205px;
+    height: 26px;
+  }
+  
+  .image-3 {
+    width: 51.05px;
+    height: 48px;
+    position: absolute;
+    left: 1288px;
+    top: 36px;
+    object-fit: cover;
+    aspect-ratio: 51.05/48;
+  }
