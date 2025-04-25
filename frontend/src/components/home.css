@@ -1,0 +1,97 @@
+._03-all-records-page,
+._03-all-records-page * {
+  box-sizing: border-box;
+}
+._03-all-records-page {
+  background: #15a196;
+  height: 1024px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-9 {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 737px;
+  height: 93px;
+  position: absolute;
+  left: 283px;
+  top: 455px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.image {
+  border-radius: 40px;
+  width: 90px;
+  height: 70px;
+  position: absolute;
+  left: 478px;
+  top: 458px;
+  object-fit: cover;
+}
+.rectangle-13 {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 737px;
+  height: 84px;
+  position: absolute;
+  left: 283px;
+  top: 622px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.vector2 {
+  position: absolute;
+  right: 43.61%;
+  left: 55.69%;
+  bottom: 33.4%;
+  top: 64.84%;
+  transform: translate(-10px, -18px);
+  overflow: visible;
+}
+.patient-history {
+  color: #15a196;
+  text-align: center;
+  font-family: "Poppins-SemiBold", sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  font-weight: 600;
+  position: absolute;
+  left: 552px;
+  top: 644px;
+  width: 199px;
+  height: 40px;
+}
+.patient-input {
+  color: #15a196;
+  text-align: center;
+  font-family: "Poppins-SemiBold", sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
+  font-weight: 600;
+  position: absolute;
+  left: 552px;
+  top: 488px;
+  width: 199px;
+  height: 40px;
+}
+.vector3 {
+  width: 0.69%;
+  height: 1.76%;
+  position: absolute;
+  right: 43.61%;
+  left: 55.69%;
+  bottom: 48.05%;
+  top: 50.2%;
+  transform: translate(-10px, -18px);
+  overflow: visible;
+}
+.group {
+  width: 3.24%;
+  height: 5.91%;
+  position: absolute;
+  right: 61.69%;
+  left: 25.07%;
+  bottom: 32.66%;
+  top: 58.43%;
+  overflow: visible;
+}
