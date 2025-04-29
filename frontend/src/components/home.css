@@ -1,97 +1,138 @@
-._03-all-records-page,
-._03-all-records-page * {
-  box-sizing: border-box;
-}
 ._03-all-records-page {
   background: #15a196;
-  height: 1024px;
-  position: relative;
-  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
 }
-.rectangle-9 {
-  background: #ffffff;
-  border-radius: 10px;
-  width: 737px;
-  height: 93px;
-  position: absolute;
-  left: 283px;
-  top: 455px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-.image {
-  border-radius: 40px;
-  width: 90px;
-  height: 70px;
-  position: absolute;
-  left: 478px;
-  top: 458px;
-  object-fit: cover;
-}
+
+.rectangle-9,
 .rectangle-13 {
   background: #ffffff;
-  border-radius: 10px;
-  width: 737px;
-  height: 84px;
-  position: absolute;
-  left: 283px;
-  top: 622px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 737px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
 }
-.vector2 {
-  position: absolute;
-  right: 43.61%;
-  left: 55.69%;
-  bottom: 33.4%;
-  top: 64.84%;
-  transform: translate(-10px, -18px);
-  overflow: visible;
+
+.rectangle-9 {
+  margin-bottom: 2rem;
 }
-.patient-history {
-  color: #15a196;
-  text-align: center;
-  font-family: "Poppins-SemiBold", sans-serif;
-  font-size: 12px;
-  line-height: 22px;
-  letter-spacing: -0.41px;
-  font-weight: 600;
-  position: absolute;
-  left: 552px;
-  top: 644px;
-  width: 199px;
-  height: 40px;
+
+.image,
+.group {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.vector2,
+.vector3 {
+  width: 12px;
+  height: 20px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.patient-history,
 .patient-input {
   color: #15a196;
-  text-align: center;
   font-family: "Poppins-SemiBold", sans-serif;
-  font-size: 12px;
-  line-height: 22px;
-  letter-spacing: -0.41px;
+  font-size: 1.1rem;
   font-weight: 600;
-  position: absolute;
-  left: 552px;
-  top: 488px;
-  width: 199px;
-  height: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  flex-grow: 1;
 }
-.vector3 {
-  width: 0.69%;
-  height: 1.76%;
-  position: absolute;
-  right: 43.61%;
-  left: 55.69%;
-  bottom: 48.05%;
-  top: 50.2%;
-  transform: translate(-10px, -18px);
-  overflow: visible;
+
+/* Hover effects */
+.rectangle-9:hover,
+.rectangle-13:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
-.group {
-  width: 3.24%;
-  height: 5.91%;
-  position: absolute;
-  right: 61.69%;
-  left: 25.07%;
-  bottom: 32.66%;
-  top: 58.43%;
-  overflow: visible;
+
+.rectangle-9:hover .vector3,
+.rectangle-13:hover .vector2 {
+  transform: translateX(5px);
+}
+
+.rectangle-30 {
+  width: 320px;
+  height: 100px;
+  background: white;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rectangle-30:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.model-analysis {
+  color: #15a196;
+  font-size: 20px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  ._03-all-records-page {
+    padding: 4rem;
+  }
+
+  .rectangle-9,
+  .rectangle-13 {
+    height: 120px;
+    max-width: 800px;
+  }
+
+  .image,
+  .group {
+    width: 80px;
+    height: 80px;
+  }
+
+  .patient-history,
+  .patient-input {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rectangle-9,
+  .rectangle-13 {
+    width: 80%;
+    max-width: 900px;
+    height: 130px;
+  }
+
+  .image,
+  .group {
+    width: 90px;
+    height: 90px;
+  }
 }

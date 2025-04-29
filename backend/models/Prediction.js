@@ -13,31 +13,46 @@ const predictionSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: true,
-    enum: ['Male', 'Female', 'Other'] // Gender options
+    enum: ['Male', 'Female']
   },
   hypertension: {
-    type: Boolean, // True or false
+    type: Number, // Changed to Number for 0/1
     required: true
   },
-  heartDisease: {
-    type: Boolean, // True or false
+  heart_disease: { // Changed from heartDisease
+    type: Number, // Changed to Number for 0/1
     required: true
   },
-  smokingHistory: {
-    type: Boolean, // True or false
-    required: true
+  smoking_history: { // Changed from smokingHistory
+    type: String,
+    required: true,
+    enum: ['never', 'no info', 'current', 'former', 'not current']
   },
-  bmi: {
+  BMI: { // Changed from bmi
     type: Number,
     required: true
   },
-  hba1cLevel: {
-    type: Number, // HbA1c levels range from 4% to 15%
+  HbA1C_level: { // Changed from hba1cLevel
+    type: Number,
     required: true
   },
-  bloodGlucose: {
-    type: Number, // Blood glucose level in mg/dL
+  blood_glucose_level: { // Changed from bloodGlucose
+    type: Number,
     required: true
+  },
+  email: {
+    type: String, // Email of the user (can be null for unregistered users)
+    ref: 'User',
+    default: null,
+    validate: {
+      validator: async function(email) {
+        if (!email) return true; // Allow null values
+        const User = mongoose.model('User');
+        const user = await User.findOne({ email });
+        return user !== null;
+      },
+      message: 'User with this email does not exist'
+    }
   },
   predictionResult: {
     type: String, // Yes or No (whether diabetic or not)

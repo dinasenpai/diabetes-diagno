@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { predictionAPI } from "../services/api";
 import "./history.css";
 
 const History = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const [showPopup, setShowPopup] = useState(!user);
+  const [predictions, setPredictions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      setShowPopup(false);
+      setLoading(true);
+      predictionAPI.getPredictionHistory()
+        .then(res => {
+          setPredictions(res.data);
+          setLoading(false);
+        })
+        .catch(() => {
+          setError("Failed to fetch prediction history.");
+          setLoading(false);
+        });
+    } else {
+      setShowPopup(true);
+    }
+  }, [user]);
 
   const handleBackRedirect = () => {
     navigate("/home");
-  };
-
-  // Mock data for now (replace with database values later)
-  const data = {
-    diagnoses: "Diabetes Type 2",
-    totalRecord: "5 Records",
-    deleteRecord: "No",
-    date: "Monday, 27 March 2023",
-    center: "Healthy Family Center",
-    heartDisease: "Yes",
-    hbA1CLevel: "7.5%",
-    bloodGlucoseLevel: "180 mg/dL",
-    diabetesOutput: "Positive",
   };
 
   return (
@@ -27,50 +39,43 @@ const History = () => {
       <div className="rectangle-1"></div>
       <div className="frame-13">
         <div className="rectangle-6"></div>
-        <div className="frame-9">
-          <div className="search-your-report">Search your report</div>
-        </div>
+        {/* Removed search bar */}
       </div>
-      <div className="rectangle-7">
-        <div className="data-container">
-          <div className="data-label">Diagnoses:</div>
-          <div className="data-value">{data.diagnoses}</div>
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <p>You need to login first to visit "patient history".</p>
+            <button onClick={() => setShowPopup(false)} className="close-popup">Close</button>
+          </div>
         </div>
-        <div className="data-container">
-          <div className="data-label">Total Record:</div>
-          <div className="data-value">{data.totalRecord}</div>
+      )}
+      {user && (
+        <div className="history-scroll-list">
+          {loading && <div>Loading...</div>}
+          {error && <div className="error-message">{error}</div>}
+          {predictions.length === 0 && !loading && !error && (
+            <div>No prediction history found.</div>
+          )}
+          {predictions.map((pred, idx) => (
+            <div className="history-card" key={pred._id || idx}>
+              <div><strong>Date:</strong> {new Date(pred.createdAt).toLocaleString()}</div>
+              <div><strong>Name:</strong> {pred.name}</div>
+              <div><strong>Age:</strong> {pred.age}</div>
+              <div><strong>Gender:</strong> {pred.gender}</div>
+              <div><strong>Heart Disease:</strong> {pred.heart_disease ? "Yes" : "No"}</div>
+              <div><strong>Hypertension:</strong> {pred.hypertension ? "Yes" : "No"}</div>
+              <div><strong>Smoking History:</strong> {pred.smoking_history}</div>
+              <div><strong>BMI:</strong> {pred.BMI}</div>
+              <div><strong>HbA1C Level:</strong> {pred.HbA1C_level}</div>
+              <div><strong>Blood Glucose Level:</strong> {pred.blood_glucose_level}</div>
+              <div><strong>Prediction:</strong> {pred.predictionResult || pred.prediction}</div>
+              <div><strong>Management Suggestions:</strong> {pred.managementSuggestions}</div>
+            </div>
+          ))}
         </div>
-        <div className="data-container">
-          <div className="data-label">Delete Record:</div>
-          <div className="data-value">{data.deleteRecord}</div>
-        </div>
-        <div className="data-container">
-          <div className="data-label">Date:</div>
-          <div className="data-value">{data.date}</div>
-        </div>
-        <div className="data-container">
-          <div className="data-label">Center:</div>
-          <div className="data-value">{data.center}</div>
-        </div>
-        <div className="data-container">
-          <div className="data-label">Heart Disease:</div>
-          <div className="data-value">{data.heartDisease}</div>
-        </div>
-        <div className="data-container">
-          <div className="data-label">HbA1C Level:</div>
-          <div className="data-value">{data.hbA1CLevel}</div>
-        </div>
-        <div className="data-container">
-          <div className="data-label">Blood Glucose Level:</div>
-          <div className="data-value">{data.bloodGlucoseLevel}</div>
-        </div>
-        <div className="data-container">
-          <div className="data-label">Diabetes Output:</div>
-          <div className="data-value">{data.diabetesOutput}</div>
-        </div>
-      </div>
+      )}
       <div className="frame-14">
-        <div className="rectangle-22"></div>
+        <div className="rectangle-77"></div>
         <div
           className="back1"
           onClick={handleBackRedirect}
