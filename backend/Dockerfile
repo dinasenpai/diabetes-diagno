@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Run the backend server (replace server.js with your entry point if necessary)
-CMD ["npm run dev"]
+CMD ["npm", "run", "dev"]
