@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-require('dotenv').config({ override: true });
+require('dotenv').config();
 const runPythonScript = require("./Runpython");
 
 const auth = require('./middleware/extractauth');
@@ -43,8 +43,6 @@ app.get("/compare-models", async (req, res) => {
 // Routes
 app.use('/auth', authRoute);
 app.use('/predict', predictRoute);
-const mongoHost = (process.env.MONGO_URI || '').split('@').pop();
-console.log(`Mongo host resolved: ${mongoHost}`);
 
 mongoose.connect(process.env.MONGO_URI, { 
   useNewUrlParser: true, 
